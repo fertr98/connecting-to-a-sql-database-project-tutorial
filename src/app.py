@@ -10,10 +10,11 @@ load_dotenv()
 
 def connect():
     global engine
-    connection_string = f"postgresql://{os.getenv('gitpod')}:{os.getenv(3306)}@{os.getenv('localhost')}/{os.getenv('<your database name>')}?autocommit=true"
+    connection_string = f"postgresql://{os.getenv('gitpod')}:{os.getenv('postgres')}@{os.getenv('localhost')}/{os.getenv('<your database name>')}"
     engine = create_engine(connection_string)
     engine.connect()
     return engine
+connect()
 
 # 2) Execute the SQL sentences to create your tables using the SQLAlchemy's execute function
 
